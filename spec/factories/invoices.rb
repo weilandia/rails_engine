@@ -2,6 +2,6 @@ FactoryGirl.define do
   factory :invoice do
     customer nil
     merchant nil
-    status "MyString"
+    status "Shipped"
   end
 end
