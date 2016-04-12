@@ -16,6 +16,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'shoulda-matchers', require: false
   gem 'simplecov', :require => false
+  gem 'responders', '~> 2.0'
 end
 
 group :development do
