@@ -15,11 +15,10 @@ RSpec.describe "GET /api/v1/invoice_items/1" do
 
     expect(response).to have_http_status("200")
     expect(json_body.class).to eq(Hash)
-
     expect(json_body).to eq(
       { "id"=>1,
         "quantity"=>10,
-        "unit_price"=>invoice_item_one.unit_price,
+        "unit_price"=>invoice_item_one.unit_price.to_s,
         "item_id"=>1,
         "invoice_id"=>1
         })

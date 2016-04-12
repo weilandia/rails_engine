@@ -3,6 +3,6 @@ FactoryGirl.define do
     item nil
     invoice nil
     quantity 10
-    unit_price 1000
+    unit_price 10.0
   end
 end

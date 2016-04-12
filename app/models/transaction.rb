@@ -5,4 +5,6 @@ class Transaction < ActiveRecord::Base
 
   validates :credit_card_number, presence: true
   validates :result, presence: true
+
+  default_scope { order(id: :asc) }
 end

@@ -14,7 +14,7 @@ RSpec.describe "GET /api/v1/customers/find" do
     expect(json_body).to eq(
       { "id"=>1,
         "first_name"=>customer_one.first_name,
-        "last_name"=>"One"
+        "last_name"=>"One",
         })
   end
 
@@ -31,7 +31,7 @@ RSpec.describe "GET /api/v1/customers/find" do
     expect(json_body).to eq(
       { "id"=>1,
         "first_name"=>customer_one.first_name,
-        "last_name"=>"One"
+        "last_name"=>"One",
         })
   end
 
@@ -48,7 +48,7 @@ RSpec.describe "GET /api/v1/customers/find" do
     expect(json_body).to eq(
       { "id"=>1,
         "first_name"=>customer_one.first_name,
-        "last_name"=>"One"
+        "last_name"=>"One",
         })
   end
 
@@ -61,11 +61,10 @@ RSpec.describe "GET /api/v1/customers/find" do
 
     expect(response).to have_http_status("200")
     expect(json_body.class).to eq(Hash)
-
     expect(json_body).to eq(
       { "id"=>3,
         "first_name"=>customer_three.first_name,
-        "last_name"=>"Three"
+        "last_name"=>"Three",
         })
   end
 
@@ -81,7 +80,7 @@ RSpec.describe "GET /api/v1/customers/find" do
     expect(json_body).to eq(
       { "id"=>2,
         "first_name"=>"Customer",
-        "last_name"=>customer_two.last_name
+        "last_name"=>customer_two.last_name,
         })
   end
 end

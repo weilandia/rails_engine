@@ -1,6 +1,12 @@
 module ApiHelpers
   def json_body
-    JSON.parse(response.body)
+    body = JSON.parse(response.body)
+    if body.class == Array
+      body.map { |record| record.dup.except("created_at", "updated_at")
+      }
+    else
+      body.dup.except("created_at", "updated_at")
+    end
   end
 end
 

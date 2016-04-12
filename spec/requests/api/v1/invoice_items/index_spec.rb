@@ -25,7 +25,7 @@ RSpec.describe "GET /api/v1/invoice_items" do
     expect(invoice_item_one_json).to eq(
       { "id"=>1,
         "quantity"=>10,
-        "unit_price"=>invoice_item_one.unit_price,
+        "unit_price"=>invoice_item_one.unit_price.to_s,
         "item_id"=>1,
         "invoice_id"=>1
         })
@@ -33,7 +33,7 @@ RSpec.describe "GET /api/v1/invoice_items" do
     expect(invoice_item_two_json).to eq(
       { "id"=>invoice_item_two.id,
         "quantity"=>10,
-        "unit_price"=>1000,
+        "unit_price"=>invoice_item_two.unit_price.to_s,
         "item_id"=>2,
         "invoice_id"=>1
         })

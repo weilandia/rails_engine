@@ -16,13 +16,13 @@ RSpec.describe "GET /api/v1/customers" do
     expect(customer_one_json).to eq(
       { "id"=>1,
         "first_name"=>customer_one.first_name,
-        "last_name"=>"One"
+        "last_name"=>"One",
         })
 
     expect(customer_two_json).to eq(
       { "id"=>2,
         "first_name"=>"Customer",
-        "last_name"=>customer_two.last_name
+        "last_name"=>customer_two.last_name,
         })
   end
 end

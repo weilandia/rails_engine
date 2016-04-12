@@ -18,7 +18,7 @@ RSpec.describe "GET /api/v1/invoice_items" do
     expect(json_body).to eq(
       { "id"=>invoice_item_one.id,
         "quantity"=>10,
-        "unit_price"=>1000,
+        "unit_price"=>invoice_item_one.unit_price.to_s,
         "item_id"=>invoice_item_one.item_id,
         "invoice_id"=>1
         })
@@ -33,7 +33,7 @@ RSpec.describe "GET /api/v1/invoice_items" do
     expect(json_body).to eq(
       { "id"=>invoice_item_two.id,
         "quantity"=>invoice_item_two.quantity,
-        "unit_price"=>1000,
+        "unit_price"=>invoice_item_two.unit_price.to_s,
         "item_id"=>invoice_item_two.item_id,
         "invoice_id"=>1
         })
@@ -41,14 +41,14 @@ RSpec.describe "GET /api/v1/invoice_items" do
 
   it "finds the first invoice item by unit price" do
     create(:invoice_item, item_id: @item_one.id, invoice_id: @invoice.id)
-    invoice_item_two = create(:invoice_item, item_id: @item_two.id, invoice_id: @invoice.id, unit_price: 5000)
+    invoice_item_two = create(:invoice_item, item_id: @item_two.id, invoice_id: @invoice.id, unit_price: 50.00)
 
     get "/api/v1/invoice_items/find?unit_price=50.00"
 
     expect(json_body).to eq(
       { "id"=>invoice_item_two.id,
         "quantity"=>invoice_item_two.quantity,
-        "unit_price"=>invoice_item_two.unit_price,
+        "unit_price"=>invoice_item_two.unit_price.to_s,
         "item_id"=>invoice_item_two.item_id,
         "invoice_id"=>1
         })
@@ -63,7 +63,7 @@ RSpec.describe "GET /api/v1/invoice_items" do
     expect(json_body).to eq(
       { "id"=>invoice_item_two.id,
         "quantity"=>invoice_item_two.quantity,
-        "unit_price"=>invoice_item_two.unit_price,
+        "unit_price"=>invoice_item_two.unit_price.to_s,
         "item_id"=>invoice_item_two.item_id,
         "invoice_id"=>1
         })
@@ -78,7 +78,7 @@ RSpec.describe "GET /api/v1/invoice_items" do
     expect(json_body).to eq(
       { "id"=>invoice_item_one.id,
         "quantity"=>10,
-        "unit_price"=>1000,
+        "unit_price"=>invoice_item_one.unit_price.to_s,
         "item_id"=>invoice_item_one.item_id,
         "invoice_id"=>1
         })
