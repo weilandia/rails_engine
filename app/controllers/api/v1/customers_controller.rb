@@ -10,7 +10,6 @@ module Api
       end
 
       def find
-        require "pry"; binding.pry
         @customer = Find.new(object)
       end
     end

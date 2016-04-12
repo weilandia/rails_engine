@@ -8,13 +8,21 @@ class Find
   def locate_record
     if @parameter == "id"
       @model.find(@query)
+    elsif @parameter == "created_at"
+      @model.find_by(@parameter => @query)
+    elsif @parameter == "updated_at"
+      @model.find_by(@parameter => @query)
+    elsif @parameter == "unit_price"
+      @model.find_by(@parameter => (@query.to_f * 100).round)
+    elsif @model.column_for_attribute(@parameter).type == :integer
+      @model.where(@parameter => @query).first
     else
       @model.find_by("lower(#{@parameter}) = ?", @query)
     end
   end
 
   def constantize_model(table)
-    table.singularize.capitalize.constantize
+    table.singularize.camelize.constantize
   end
 
   def select_parameter(model, params)
