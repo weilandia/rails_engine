@@ -21,16 +21,16 @@ RSpec.describe "GET /api/v1/invoices" do
     invoice_two_json = json_body.last
 
     expect(invoice_one_json).to eq(
-      { "id"=>1,
+      { "id"=>invoice_one.id,
         "status"=>"Shipped",
-        "customer_id"=>invoice_one.id,
+        "customer_id"=>@customer_one.id,
         "merchant_id"=>1
         })
 
     expect(invoice_two_json).to eq(
       { "id"=>2,
-        "status"=>"Shipped",
-        "customer_id"=>invoice_two.id,
+        "status"=>invoice_two.status,
+        "customer_id"=>@customer_two.id,
         "merchant_id"=>1
         })
   end

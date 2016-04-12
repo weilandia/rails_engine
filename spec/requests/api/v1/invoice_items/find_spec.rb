@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "GET /api/v1/invoice_items" do
+RSpec.describe "GET /api/v1/invoice_items/find" do
   before(:each) do
     @customer = create(:customer)
     @merchant = create(:merchant)
