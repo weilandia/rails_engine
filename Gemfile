@@ -15,7 +15,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'pry-rails'
   gem 'shoulda-matchers', require: false
-  gem 'simplecov', :require => false
+  gem 'coveralls', require: false
   gem 'responders', '~> 2.0'
 end
 
