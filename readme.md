@@ -1,1 +1,1 @@
-[![Code Climate](https://codeclimate.com/github/weilandia/rails_engine/badges/gpa.svg)](https://codeclimate.com/github/weilandia/rails_engine)
+[![Code Climate](https://codeclimate.com/github/weilandia/rails_engine/badges/gpa.svg)](https://codeclimate.com/github/weilandia/rails_engine) [![Build Status](https://travis-ci.org/weilandia/rails_engine.svg?branch=master)](https://travis-ci.org/weilandia/rails_engine) 
