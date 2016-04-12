@@ -14,7 +14,7 @@ RSpec.describe "GET /api/v1/transactions" do
     @transaction_two = create(:transaction, credit_card_number: "0000000000000000", invoice_id: @invoice_two.id)
   end
 
-  it "finds the first invoice by id" do
+  it "finds the first transaction by id" do
 
     get "/api/v1/transactions/find?id=2"
 
@@ -29,7 +29,7 @@ RSpec.describe "GET /api/v1/transactions" do
         })
   end
 
-  it "finds the first invoice by result" do
+  it "finds the first tansaction by result" do
 
     get "/api/v1/transactions/find?result=failed"
 
@@ -43,7 +43,7 @@ RSpec.describe "GET /api/v1/transactions" do
         })
   end
 
-  it "finds the first invoice by cc number" do
+  it "finds the first transaction by cc number" do
     get "/api/v1/transactions/find?credit_card_number=4242424242424242"
 
     expect(response).to have_http_status("200")
@@ -57,7 +57,7 @@ RSpec.describe "GET /api/v1/transactions" do
         })
   end
 
-  it "finds the first invoice by invoice id" do
+  it "finds the first transaction by invoice id" do
 
     get "/api/v1/transactions/find?invoice_id=2"
 
