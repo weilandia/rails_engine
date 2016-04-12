@@ -8,6 +8,11 @@ module Api
       def show
         @customer = Customer.find(params[:id])
       end
+
+      def find
+        require "pry"; binding.pry
+        @customer = Find.new(object)
+      end
     end
   end
 end
