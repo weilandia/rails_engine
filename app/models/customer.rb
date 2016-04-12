@@ -6,4 +6,6 @@ class Customer < ActiveRecord::Base
   has_many :merchants, through: :items
   validates :first_name, presence: true
   validates :last_name, presence: true
+
+  default_scope { order(id: :asc) }
 end

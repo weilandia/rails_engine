@@ -14,6 +14,7 @@ namespace :db do
     end
 
     CSV.foreach('data/items.csv', headers: true, header_converters: :symbol) do |row|
+      row[:unit_price] = row[:unit_price].to_f / 100
       record = Item.create(row.to_h)
       puts "#{record.class.to_s} - #{record.id} created"
     end
@@ -24,6 +25,7 @@ namespace :db do
     end
 
     CSV.foreach('data/invoice_items.csv', headers: true, header_converters: :symbol) do |row|
+      row[:unit_price] = row[:unit_price].to_f / 100
       record = InvoiceItem.create(row.to_h)
       puts "#{record.class.to_s} - #{record.id} created"
     end

@@ -8,6 +8,10 @@ module Api
       def show
         @customer = Customer.find(params[:id])
       end
+
+      def find
+        @customer = Find.new(object)
+      end
     end
   end
 end

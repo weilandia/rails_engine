@@ -6,5 +6,7 @@ class Item < ActiveRecord::Base
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :unit_price, presence: true, numericality: { only_integer: true }
+  validates :unit_price, presence: true
+
+  default_scope { order(id: :asc) }
 end

@@ -6,4 +6,6 @@ class Invoice < ActiveRecord::Base
   has_many :items, through: :invoice_items
 
   validates :status, presence: true
+
+  default_scope { order(id: :asc) }
 end
