@@ -25,7 +25,6 @@ RSpec.describe "GET /api/v1/transactions" do
       { "id"=>2,
         "result"=>@transaction_two.result,
         "credit_card_number"=>"0000000000000000",
-        "credit_card_expiration_date"=>nil,
         "invoice_id"=>2
         })
   end
@@ -40,7 +39,6 @@ RSpec.describe "GET /api/v1/transactions" do
       { "id"=>1,
         "result"=>@transaction_one.result,
         "credit_card_number"=>"4242424242424242",
-        "credit_card_expiration_date"=>nil,
         "invoice_id"=>1
         })
   end
@@ -55,7 +53,6 @@ RSpec.describe "GET /api/v1/transactions" do
       { "id"=>1,
         "result"=>@transaction_one.result,
         "credit_card_number"=>"4242424242424242",
-        "credit_card_expiration_date"=>nil,
         "invoice_id"=>1
         })
   end
@@ -71,7 +68,6 @@ RSpec.describe "GET /api/v1/transactions" do
       { "id"=>2,
         "result"=>@transaction_two.result,
         "credit_card_number"=>"0000000000000000",
-        "credit_card_expiration_date"=>nil,
         "invoice_id"=>2
         })
   end
