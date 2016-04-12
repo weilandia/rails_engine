@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "GET /api/v1/customers/1" do
-  it "returns a data for a customer" do
+  it "returns data for a customer" do
     customer_one = create(:customer)
 
     get "/api/v1/customers/1"
