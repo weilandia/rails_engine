@@ -25,6 +25,11 @@ module Api
         render "api/v1/merchants/index"
       end
 
+      def most_items
+        @merchants = Merchant.most_items(params[:quantity])
+        render "api/v1/merchants/index"
+      end
+
     private
       def set_merchant
         @merchant = Merchant.find(params[:id])

@@ -19,6 +19,17 @@ class Merchant < ActiveRecord::Base
       .take(number)
   end
 
+  def self.most_items(number)
+    select( "merchants.*",
+            "SUM(invoice_items.quantity) AS item_count")
+      .joins(invoices:
+      [:transactions, :invoice_items, :items])
+      .where('transactions.result = ?', 'success')
+      .group(:id)
+      .reorder('item_count DESC')
+      .take(number)
+  end
+
   def successful_invoices
     invoices.joins(:transactions, :invoice_items).where("result = 'success'")
   end
