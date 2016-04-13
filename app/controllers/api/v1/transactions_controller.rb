@@ -2,7 +2,7 @@ module Api
   module V1
     class TransactionsController < ApiController
       before_action :set_transaction, except: [:index]
-
+      
       def index
         @transactions = Transaction.all
       end

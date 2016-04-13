@@ -7,4 +7,6 @@ class Transaction < ActiveRecord::Base
   validates :result, presence: true
 
   default_scope { order(id: :asc) }
+  scope :success, -> { where("result = ?", "success") }
+
 end

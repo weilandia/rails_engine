@@ -6,15 +6,17 @@ Rails.application.routes.draw do
       get '/:table/random', as: :random, to: 'searches#random'
 
       resources :customers, only: [:index, :show] do
-        member { get 'invoices', 'transactions' }
+        member { get 'invoices', 'transactions', 'favorite_merchant' }
       end
 
       resources :merchants, only: [:index, :show] do
-        member { get 'items', 'invoices' }
+        collection { get 'most_revenue', 'most_items', 'revenue' }
+        member { get 'items', 'invoices', 'revenue', 'favorite_customer', 'customers_with_pending_invoices' }
       end
 
       resources :items, only: [:index, :show] do
-        member { get 'invoice_items', 'merchant' }
+        collection { get 'most_revenue', 'most_items' }
+        member { get 'invoice_items', 'merchant', 'best_day' }
       end
 
       resources :invoice_items, only: [:index, :show] do
