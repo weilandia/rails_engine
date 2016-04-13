@@ -24,6 +24,11 @@ module Api
         render "api/v1/invoices/index"
       end
 
+      def favorite_merchant
+        @merchant = Merchant.favorite_merchant_by_customer(params[:id])
+        render "api/v1/merchants/show"
+      end
+
     private
       def set_customer
         @customer = Customer.find(params[:id])

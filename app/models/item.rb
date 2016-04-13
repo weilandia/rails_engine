@@ -24,4 +24,8 @@ class Item < ActiveRecord::Base
       .reorder('item_count DESC')
       .take(number)
   end
+
+  def self.best_day(item_id)
+    select( "items.*","SUM(invoice_items.quantity) AS item_count", "invoices.created_at AS invoice_date").joins(invoices: :transactions).where(transactions: { result: 'success' }).where(id: item_id).group('items.id, invoice_date').reorder('item_count DESC, invoice_date DESC').first.invoice_date
+  end
 end

@@ -29,6 +29,10 @@ module Api
         render "api/v1/items/index"
       end
 
+      def best_day
+        @date = Item.best_day(@item.id)
+      end
+
     private
       def set_item
         @item = Item.find(params[:id])

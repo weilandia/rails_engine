@@ -39,4 +39,8 @@ class Merchant < ActiveRecord::Base
   def revenue_by_date(date)
     successful_invoices_by_date(date).sum("unit_price * quantity").to_f
   end
+
+  def self.favorite_merchant_by_customer(customer_id)
+    joins(:transactions, :invoices).where(invoices: { customer_id: customer_id }).where(transactions: { result: 'success' }).group(:id).reorder('transactions.count DESC').first
+  end
 end
