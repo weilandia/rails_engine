@@ -1,7 +1,7 @@
 module Api
   module V1
     class MerchantsController < ApiController
-      before_action :set_merchant, only: [:show, :invoices, :items]
+      before_action :set_merchant, only: [:show, :invoices, :items, :favorite_customer]
 
       def index
         @merchants = Merchant.all
@@ -28,6 +28,20 @@ module Api
       def most_items
         @merchants = Merchant.most_items(params[:quantity])
         render "api/v1/merchants/index"
+      end
+
+      def revenue
+        @revenue = RevenueFinder.new(params).find_revenue
+      end
+
+      def favorite_customer
+        @customer = Customer.favorite_customer_by_merchant(params[:id])
+        render "api/v1/customers/show"
+      end
+
+      def customers_with_pending_invoices
+        @customers = Customer.customers_with_pending_invoices_by_merchant(params[:id])
+        render "api/v1/customers/index"
       end
 
     private

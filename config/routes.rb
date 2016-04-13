@@ -10,8 +10,8 @@ Rails.application.routes.draw do
       end
 
       resources :merchants, only: [:index, :show] do
-        collection { get 'most_revenue', 'most_items', 'revenue' }
-        member { get 'items', 'invoices', 'revenue', 'favorite_customer', 'customers_with_pending_invoices' }
+        collection { get :most_revenue, :most_items, :revenue }
+        member { get :items, :invoices, :revenue, :favorite_customer, :customers_with_pending_invoices }
       end
 
       resources :items, only: [:index, :show] do
