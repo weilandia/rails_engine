@@ -9,8 +9,8 @@ class Invoice < ActiveRecord::Base
 
   def self.revenue_by_date(date)
     where(created_at: date)
-    .joins(:invoice_items, :transactions)
-    .where(transactions: { result: 'success' })
-    .sum('invoice_items.quantity * invoice_items.unit_price')
+      .joins(:invoice_items, :transactions)
+      .where(transactions: { result: 'success' })
+      .sum('invoice_items.quantity * invoice_items.unit_price')
   end
 end

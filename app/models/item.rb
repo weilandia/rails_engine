@@ -7,8 +7,7 @@ class Item < ActiveRecord::Base
   default_scope { order(id: :asc) }
 
   def self.most_revenue(number)
-    select( "items.*",
-            "SUM(invoice_items.unit_price * invoice_items.quantity) AS revenue" )
+    select( "items.*","SUM(invoice_items.unit_price * invoice_items.quantity) AS revenue" )
       .joins(invoices: [:transactions, :invoice_items])
       .where(transactions: { result: 'success' })
       .group(:id)
@@ -26,6 +25,13 @@ class Item < ActiveRecord::Base
   end
 
   def self.best_day(item_id)
-    select( "items.*","SUM(invoice_items.quantity) AS item_count", "invoices.created_at AS invoice_date").joins(invoices: :transactions).where(transactions: { result: 'success' }).where(id: item_id).group('items.id, invoice_date').reorder('item_count DESC, invoice_date DESC').first.invoice_date
+    select( "items.*","SUM(invoice_items.quantity) AS item_count", "invoices.created_at AS invoice_date")
+      .joins(invoices: :transactions)
+      .where(transactions: { result: 'success' })
+      .where(id: item_id)
+      .group('items.id, invoice_date')
+      .reorder('item_count DESC, invoice_date DESC')
+      .first
+      .invoice_date
   end
 end
