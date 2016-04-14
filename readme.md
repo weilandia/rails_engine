@@ -3,4 +3,4 @@
 
 Rails Engine is a RoR API with a variety of endpoints for accessing Etsy merchant and customer data (dataset is local).  The business logic for the API is achieved using only ActiveRecord/SQL queries.
 
-To interact with the API, clone the repo and run ```rake db:setup``` and ```'rake db:load_csv'``` to populate the database.  The test suite is in RSpec and can be run with the command 'rake'.
+To interact with the API, clone the repo and run ```rake db:setup``` and ```rake db:load_csv``` to populate the database.  The test suite is in RSpec and can be run with the command 'rake'.
